@@ -36,8 +36,8 @@ class TestController extends Controller
     public function post_curl($url, $request = null, $isForm = false)
     {
         $curl = Http::withHeaders([
-            'Authorization' => "Bearer feecb20f-0558-4f63-bdea-75bfa898c42f",
-            'X-Session-ID' => '69a217b8-13ce-4c58-92ff-952109fdcd83'
+            'Authorization' => "Bearer 481371ad-0790-48ef-9c96-12dac9af980e",
+            'X-Session-ID' => '1f802b70-acab-400d-8a44-a5a62b27d881'
         ])->withOptions(["verify" => false]);
 
         if ($isForm) {
