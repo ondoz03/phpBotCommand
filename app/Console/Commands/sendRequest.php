@@ -46,7 +46,7 @@ class SendRequest extends Command
                     'driver' => 'daily',
                     'path' => storage_path('logs/custom.log'),
                 ])->info('Showing Status Created Successfully data' . $i);
-                 $this->info('Showing Status Created Successfully data ke'[$i]);
+                 $this->info('Showing Status Created Successfully data ke' . [$i]);
             }else{
                 Log::build([
                     'driver' => 'daily',
