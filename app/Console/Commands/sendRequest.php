@@ -61,8 +61,8 @@ class SendRequest extends Command
     public function post_curl($url, $request = null, $isForm = false)
     {
         $curl = Http::withHeaders([
-            'Authorization' => "Bearer e451d06b-520b-4a6b-b8e6-ea6a7355a4e7",
-            'X-Session-ID' => 'b6fc30af-d977-4830-8665-574c323f9288'
+            'Authorization' => "Bearer bfaec47e-5253-4ff1-a6e8-612426297872",
+            'X-Session-ID' => '69941beb-6e26-41e8-b103-f2250dc80856'
         ])->withOptions(["verify" => true]);
 
         if ($isForm) {
