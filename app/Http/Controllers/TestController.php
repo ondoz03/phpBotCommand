@@ -36,15 +36,15 @@ class TestController extends Controller
     public function post_curl($url, $request = null, $isForm = false)
     {
         $curl = Http::withHeaders([
-            'Authorization' => "Bearer 74980f40-1082-4226-8102-c2480bf7c5c3",
-            'X-Session-ID' => 'e0456b57-20ef-4ec7-819c-73b97729a049'
+            'Authorization' => "Bearer 1d53d79e-7312-4415-bfd9-d044bb1dbc9c",
+            'X-Session-ID' => '578ebc63-7753-46d5-b8eb-a330542b33b2'
         ])->withOptions(["verify" => false]);
 
         if ($isForm) {
             $curl = $curl->asForm();
         }
 
-        $response = $curl->post("https://pvsh13.pvt1.accurate.id" . "/accurate/api/" . $url, $request);
+        $response = $curl->post("https://zeus.accurate.id" . "/accurate/api/" . $url, $request);
 
 
         if ($response->status() >= 200 && $response->status() < 300) {
