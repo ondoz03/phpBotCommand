@@ -61,17 +61,16 @@ class SendRequest extends Command
     public function post_curl($url, $request = null, $isForm = false)
     {
         $curl = Http::withHeaders([
-            'Authorization' => "Bearer 74980f40-1082-4226-8102-c2480bf7c5c3",
-            'X-Session-ID' => 'e0456b57-20ef-4ec7-819c-73b97729a049'
+            'Authorization' => "Bearer b33f1903-485f-4013-b003-0a313237d0ae",
+            'X-Session-ID' => '731d1922-2809-4143-938a-2c41e1155522'
         ])->withOptions(["verify" => false]);
 
         if ($isForm) {
             $curl = $curl->asForm();
         }
 
-        $response = $curl->post("https://pvsh13.pvt1.accurate.id" . "/accurate/api/" . $url, $request);
-
-
+        $response = $curl->post("https://zeus.accurate.id" . "/accurate/api/" . $url, $request);
+        
         if ($response->status() >= 200 && $response->status() < 300) {
             return  ['message' => 'Successfuly', 'code' => $response->status(), 'data' => $response->json() ,'number' => $response['r']['number']];
         } else if ($response->status() >= 400) {
@@ -94,10 +93,8 @@ class SendRequest extends Command
             "detailItem[0].departmentName"=> "",
             "detailItem[0].detailName"=> $this->faker->text,
             "detailItem[0].salesmanListNumber[0]"=> "4444",
-            "detailItem[0].useTax1"=>  $this->faker->randomElement(['true','false']),
-
-
-            "taxable" => $this->faker->randomElement(['true','false']),
+            "detailItem[0].useTax1"=>  false,
+            "taxable" => 'false',
             "approvaStatus" => "APPROVED",
             "transDate" => date("d/m/Y"),
             "customerNo" => self::customerNo(),
@@ -105,7 +102,7 @@ class SendRequest extends Command
             "currencyCode" => "IDR",
             "rate" => "0",
             "fiscalRate" => "0",
-            "inclusiveTax" => $this->faker->randomElement(['true','false']),
+            "inclusiveTax" => 'false',
             "taxType" => "BKN_PEMUNGUT_PPN",
             "customerTaxType" => "BKN_PEMUNGUT_PPN",
             "documentCode" => "INVOICE",
@@ -120,11 +117,29 @@ class SendRequest extends Command
     function customerNo()
     {
         return $this->faker->randomElement([
-        "C.00001",
-        "C.00002",
-        "C.00003",
-        "C.00004",
-        "C.00005",
+            'CSBY-0005',
+            'CJKT-0003',
+            'CSBY-0011',
+            'CJKT-0006',
+            'CSBY-0003',
+            'CJKT-0007',
+            'CJKT-0004',
+            'CSBY-0006',
+            'CSBY-0007',
+            'CSBY-0002',
+            'CSBY-0010',
+            'CJKT-0002',
+            'CSBY-0008',
+            'CSBY-0009',
+            'CSBY-0012',
+            'CJKT-0009',
+            'CJKT-0008',
+            'CJKT-0010',
+            'CJKT-0001',
+            'CSBY-0001',
+            'CSBY-0004',
+            'CJKT-0011',
+            'CJKT-0005',
         ]);
     }
 
@@ -137,11 +152,69 @@ class SendRequest extends Command
     {
         return $this->faker->randomElement(
             [
-                "100006",
-                "100007",
-                "100008",
-                "100009",
-                "100010",
+                '9900012',
+                '9900013',
+                '9900014',
+                '9900015',
+                '9900016',
+                '9900006',
+                '9900007',
+                '9900008',
+                '9900004',
+                '9900005',
+                '8800002',
+                '100003',
+                '9900009',
+                '8800003',
+                '9900002',
+                '9900001',
+                '5116001',
+                '5132002',
+                '5164003',
+                '5216001',
+                '5232002',
+                '5264003',
+                '6112803',
+                '6116001',
+                '6164002',
+                '6212803',
+                '6216001',
+                '6264002',
+                '6312803',
+                '6316001',
+                '6364002',
+                '100002',
+                '100001',
+                '9800001',
+                '9800002',
+                '8800001',
+                '9900018',
+                '9900017',
+                '1200002',
+                '1200001',
+                '1200003',
+                '1200004',
+                '9900019',
+                '9900021',
+                '9900020',
+                '9900010',
+                '1100005',
+                '1100006',
+                '1100003',
+                '1100007',
+                '1100008',
+                '1100001',
+                '1100002',
+                '1100004',
+                '9900003',
+                '8800005',
+                '9900011',
+                '8800004',
+                '1300003',
+                '1300002',
+                '1300005',
+                '1300001',
+                '1300004',
             ]
         );
     }
